@@ -3,7 +3,7 @@
 A simple **Banking Information System** built using **Java (Backend)** and **HTML, CSS, JavaScript (Frontend)**.  
 This project allows users to **register, deposit, withdraw, and check balances**, without using any databases.  
 
-[](https://github.com/Sidd444/upskillcampus/blob/main/public/Screenshot%202025-03-26%20205030.png)
+![](https://github.com/Sidd444/upskillcampus/blob/main/public/Screenshot%202025-03-26%20205030.png)
 
 ---
 
