@@ -9,9 +9,20 @@ public class User {
         this.balance = balance;
     }
 
-    public String getName() { return name; }
-    public String getAccountNumber() { return accountNumber; }
-    public double getBalance() { return balance; }
 
-    public void setBalance(double balance) { this.balance = balance; }
+    public String getName() {
+        return name;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }

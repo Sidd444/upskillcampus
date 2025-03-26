@@ -3,19 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://th.bing.com/th/id/R.c271efb54002e3aa7baedcf9cba6f284?rik=x374QeRD8kSOag&pid=ImgRaw&r=0">
     <title>Banking System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Banking Information System</h1>
-    <input type="text" id="accNumber" placeholder="Account Number">
-    <input type="text" id="name" placeholder="Name (for registration)">
-    <input type="number" id="amount" placeholder="Amount">
-    <button onclick="registerUser()">Register</button>
-    <button onclick="depositMoney()">Deposit</button>
-    <button onclick="withdrawMoney()">Withdraw</button>
-    <button onclick="checkBalance()">Check Balance</button>
+
+    
+    <section class="card">
+        <h2>Register User</h2>
+        <input type="text" id="registerName" placeholder="Enter Name">
+        <input type="text" id="registerAccNumber" placeholder="Enter Account Number">
+        <input type="number" id="registerBalance" placeholder="Enter Initial Balance">
+        <button onclick="registerUser()">Register</button>
+    </section>
+
+  
+    <section class="card">
+        <h2>Deposit Money</h2>
+        <input type="text" id="depositAccNumber" placeholder="Enter Account Number">
+        <input type="number" id="depositAmount" placeholder="Enter Amount">
+        <button onclick="depositMoney()">Deposit</button>
+    </section>
+
+    
+    <section class="card">
+        <h2>Withdraw Money</h2>
+        <input type="text" id="withdrawAccNumber" placeholder="Enter Account Number">
+        <input type="number" id="withdrawAmount" placeholder="Enter Amount">
+        <button onclick="withdrawMoney()">Withdraw</button>
+    </section>
+
+    
+    <section class="card">
+        <h2>Check Balance</h2>
+        <input type="text" id="balanceAccNumber" placeholder="Enter Account Number">
+        <button onclick="checkBalance()">Check Balance</button>
+    </section>
+
     <p id="result"></p>
+
     <script src="script.js"></script>
 </body>
 </html>

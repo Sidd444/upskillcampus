@@ -1,33 +1,42 @@
 const serverURL = "http://localhost:5000";
 
-async function sendRequest(command) {
-    const response = await fetch(serverURL, {
+async function sendRequest(endpoint, body) {
+    const response = await fetch(`${serverURL}/${endpoint}`, {
         method: "POST",
-        body: command,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
     });
-    const data = await response.json();
-    document.getElementById("result").innerText = JSON.stringify(data);
+    return response.json();
 }
 
 function registerUser() {
-    const name = document.getElementById("name").value;
-    const accNumber = document.getElementById("accNumber").value;
-    sendRequest(`REGISTER ${name} ${accNumber} 1000`);
+    const name = document.getElementById("registerName").value;
+    const accNumber = document.getElementById("registerAccNumber").value;
+    const balance = document.getElementById("registerBalance").value;
+    sendRequest("register", { name, accountNumber: accNumber, initialDeposit: parseFloat(balance) }).then(response => {
+        alert(response.success ? `User ${name} registered successfully.` : `Failed to register user ${name}.`);
+    });
 }
 
 function depositMoney() {
-    const accNumber = document.getElementById("accNumber").value;
-    const amount = document.getElementById("amount").value;
-    sendRequest(`DEPOSIT ${accNumber} ${amount}`);
+    const accNumber = document.getElementById("depositAccNumber").value;
+    const amount = document.getElementById("depositAmount").value;
+    sendRequest("deposit", { accountNumber: accNumber, amount: parseFloat(amount) }).then(response => {
+        alert(response.message);
+    });
 }
 
 function withdrawMoney() {
-    const accNumber = document.getElementById("accNumber").value;
-    const amount = document.getElementById("amount").value;
-    sendRequest(`WITHDRAW ${accNumber} ${amount}`);
+    const accNumber = document.getElementById("withdrawAccNumber").value;
+    const amount = document.getElementById("withdrawAmount").value;
+    sendRequest("withdraw", { accountNumber: accNumber, amount: parseFloat(amount) }).then(response => {
+        alert(response.message);
+    });
 }
 
 function checkBalance() {
-    const accNumber = document.getElementById("accNumber").value;
-    sendRequest(`BALANCE ${accNumber}`);
+    const accNumber = document.getElementById("balanceAccNumber").value;
+    sendRequest("balance", { accountNumber: accNumber }).then(response => {
+        alert(response.message);
+    });
 }
